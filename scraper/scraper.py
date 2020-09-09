@@ -277,9 +277,7 @@ def scraper(**kwargs):
 
     email = input('Digite seu email: ')
     password = getpass.getpass('Digite sua senha: ')
-
-    urls = ['https://facebook.com/lara.mondini4']
-    #urls = ['https://facebook.com/me']
+    urls = ['https://facebook.com/me']
 
     if len(urls) > 0:
         print("\nStarting Scraping...")
