@@ -221,13 +221,19 @@ def login(email, password):
         options.add_argument("--disable-infobars")
         options.add_argument("--mute-audio")
         # options.add_argument("headless")
+        # New tests
+        #chrome_options = Options()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
 
         try:
             driver = webdriver.Chrome(
-                executable_path=ChromeDriverManager().install(), options=options
+                executable_path= '/home/scraper_facebook_edit/chromedriver', options=options
+                #executable_path=ChromeDriverManager().install(), options=options
             )
-        except Exception as erro:
-            print("Error: ", erro)
+        except Exception as ERROR:
+            print("Error: ",ERROR)
             #print("Error loading chrome webdriver " + sys.exc_info()[0])
             exit(1)
 
