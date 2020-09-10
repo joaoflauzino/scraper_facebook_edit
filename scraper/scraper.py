@@ -34,10 +34,11 @@ def extract_and_write_posts(elements, filename, user_name):
                 # html post
                 post_html = utils.get_post_html(x)
                 # time
-                time_str = utils.get_timestamp(x)
-                lista_time = time_str.split(" ")
-                time = "_".join([lista_time[0], lista_time[2], lista_time[4]]).replace(":", "_")
-                name_file = dir_ + '/' + user_name + '_' + str(count) + '_' + time
+                #time_str = utils.get_timestamp(x)
+                #import pdb; pdb.set_trace()
+                #lista_time = time_str.split(" ")
+                #time = "_".join([lista_time[0], lista_time[2], lista_time[4]]).replace(":", "_")
+                name_file = dir_ + '/' + user_name + '_' + str(count)
                 html = open(name_file + '.html', "w", encoding='utf-8')
                 html.write(post_html)
                 html.close()
@@ -277,7 +278,11 @@ def scraper(**kwargs):
 
     email = input('Digite seu email: ')
     password = getpass.getpass('Digite sua senha: ')
-    urls = ['https://facebook.com/me']
+
+    #urls = ['https://facebook.com/lara.mondini4', 'https://facebook.com/me', 'https://www.facebook.com/cassio.dealcantara', 'https://www.facebook.com/DiansleyRaphael', 'https://www.facebook.com/gabriel.valentin.7771',
+    #'https://www.facebook.com/Arthur.MartinsS/', 'https://www.facebook.com/luflauzino.flauzino/']
+    urls = ['https://www.facebook.com/fredsantosoficial']
+    #urls = ['https://www.facebook.com/me']
 
     if len(urls) > 0:
         print("\nStarting Scraping...")
@@ -296,7 +301,7 @@ def scraper(**kwargs):
 if __name__ == "__main__":
     
     total_scrolls = 2500 
-    scroll_time = 8 
+    scroll_time = 8
     current_scrolls = 0
     old_height = 0
     driver = None
