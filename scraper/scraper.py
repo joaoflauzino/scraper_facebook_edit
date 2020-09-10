@@ -264,8 +264,8 @@ def login(email, password):
 
             driver.find_element_by_id("checkpointSubmitButton").click()
 
-    except Exception:
-        print("There's some error in log in.")
+    except Exception as e:
+        print("There's some error in log in: ", e)
         print(sys.exc_info()[0])
         exit(1)
 
