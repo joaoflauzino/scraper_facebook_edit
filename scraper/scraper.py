@@ -226,8 +226,9 @@ def login(email, password):
             driver = webdriver.Chrome(
                 executable_path=ChromeDriverManager().install(), options=options
             )
-        except Exception:
-            print("Error loading chrome webdriver " + sys.exc_info()[0])
+        except Exception as erro:
+            print("Error: ", erro)
+            #print("Error loading chrome webdriver " + sys.exc_info()[0])
             exit(1)
 
         fb_path = facebook_https_prefix + facebook_link_body
