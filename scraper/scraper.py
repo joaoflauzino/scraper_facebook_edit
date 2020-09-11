@@ -14,6 +14,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver
 import datetime
 import logging
 
@@ -214,14 +215,16 @@ def login(email, password):
     try:
         global driver
 
-        options = Options()
+        #options = Options()
+        options = webdriver.ChromeOptions()
+        options.add_argument('headless')
 
         #  Code to disable notifications pop up of Chrome Browser
-        options.add_argument("--disable-notifications")
-        options.add_argument("--disable-infobars")
-        options.add_argument("--mute-audio")
+        #options.add_argument("--disable-notifications")
+        #options.add_argument("--disable-infobars")
+        #options.add_argument("--mute-audio")
         # New tests
-        options.add_argument('--headless')
+        #options.add_argument('--headless')
         # options.add_argument('--no-sandbox')
         # options.add_argument('--disable-dev-shm-usage')
 
@@ -231,7 +234,7 @@ def login(email, password):
             )
         except Exception as ERROR:
             print("Error: ",ERROR)
-            print("Error loading chrome webdriver " + sys.exc_info()[0])
+            print("Error loading chrome webdriver " + str(sys.exc_info()[0]))
             exit(1)
 
         fb_path = facebook_https_prefix + facebook_link_body
