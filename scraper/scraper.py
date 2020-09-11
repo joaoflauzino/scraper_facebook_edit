@@ -229,6 +229,7 @@ def login(email, password):
         # options.add_argument('--disable-dev-shm-usage')
 
         try:
+            #driver = webdriver.Chrome(chrome_options=options)
             driver = webdriver.Chrome(
                 executable_path=ChromeDriverManager().install(), options=options
             )
