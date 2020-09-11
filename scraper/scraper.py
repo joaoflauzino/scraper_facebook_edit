@@ -217,16 +217,16 @@ def login(email, password):
 
         #options = Options()
         options = webdriver.ChromeOptions()
-        options.add_argument('headless')
+        #options.add_argument('headless')
 
         #  Code to disable notifications pop up of Chrome Browser
-        #options.add_argument("--disable-notifications")
-        #options.add_argument("--disable-infobars")
-        #options.add_argument("--mute-audio")
+        options.add_argument("--disable-notifications")
+        options.add_argument("--disable-infobars")
+        options.add_argument("--mute-audio")
         # New tests
-        #options.add_argument('--headless')
-        # options.add_argument('--no-sandbox')
-        # options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
 
         try:
             #driver = webdriver.Chrome(chrome_options=options)
