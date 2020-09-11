@@ -34,10 +34,10 @@ def extract_and_write_posts(elements, filename, user_name):
                 # html post
                 post_html = utils.get_post_html(x)
                 # time
-                #time_str = utils.get_timestamp(x)
-                #import pdb; pdb.set_trace()
-                #lista_time = time_str.split(" ")
-                #time = "_".join([lista_time[0], lista_time[2], lista_time[4]]).replace(":", "_")
+                # time_str = utils.get_timestamp(x) 
+                # import pdb; pdb.set_trace()
+                # lista_time = time_str.split(" ")
+                # time = "_".join([lista_time[0], lista_time[2], lista_time[4]]).replace(":", "_")
                 name_file = dir_ + '/' + user_name + '_' + str(count)
                 html = open(name_file + '.html', "w", encoding='utf-8')
                 html.write(post_html)
@@ -220,21 +220,18 @@ def login(email, password):
         options.add_argument("--disable-notifications")
         options.add_argument("--disable-infobars")
         options.add_argument("--mute-audio")
-        # options.add_argument("headless")
         # New tests
-        #chrome_options = Options()
         options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
+        # options.add_argument('--no-sandbox')
+        # options.add_argument('--disable-dev-shm-usage')
 
         try:
             driver = webdriver.Chrome(
-                executable_path= '/home/scraper_facebook_edit/chromedriver', options=options
-                #executable_path=ChromeDriverManager().install(), options=options
+                executable_path=ChromeDriverManager().install(), options=options
             )
         except Exception as ERROR:
             print("Error: ",ERROR)
-            #print("Error loading chrome webdriver " + sys.exc_info()[0])
+            print("Error loading chrome webdriver " + sys.exc_info()[0])
             exit(1)
 
         fb_path = facebook_https_prefix + facebook_link_body
